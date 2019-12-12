@@ -12,7 +12,7 @@
 
 
 
-<title>postname | huangyu</title>
+<title>nginx配置到阿里云 | huangyu</title>
 
 
 
@@ -108,11 +108,73 @@
             <div class="container">
     
     
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
 
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">postname</h1>
+            <h1 class="post-title">nginx配置到阿里云</h1>
             
                 <div class="post-meta">
                     
@@ -121,7 +183,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">December 3, 2019&nbsp;&nbsp;16:42:08</a>
+                        Date: <a href="#">December 12, 2019&nbsp;&nbsp;14:41:01</a>
                         </span>
                     
                     
@@ -130,7 +192,25 @@
         </header>
 
         <div class="post-content">
-            <p>第一个博客</p>
+            <h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><p>　　Nginx是一款轻量级的网页服务器、反向代理服务器。相较于Apache、lighttpd具有占有内存少，稳定性高等优势。<strong>它最常的用途是提供反向代理服务。</strong></p>
+<h2 id="二-、安装"><a href="#二-、安装" class="headerlink" title="二 、安装"></a>二 、安装</h2><p>1、准备工作</p>
+<p>Nginx的安装依赖于以下三个包，意思就是在安装Nginx之前首先必须安装一下的三个包，注意安装顺序如下：</p>
+<p>　　1 SSL功能需要openssl库，直接通过yum安装: #yum install openssl</p>
+<p>　　2 gzip模块需要zlib库，直接通过yum安装: #yum install zlib</p>
+<p>　　3 rewrite模块需要pcre库，直接通过yum安装: #yum install pcre</p>
+<p>2、安装Nginx依赖项和Nginx</p>
+<p>　　1 使用yum安装nginx需要包括Nginx的库，安装Nginx的库</p>
+<p>　　　　#rpm -Uvh <a href="http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm" target="_blank" rel="noopener">http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm</a></p>
+<p>　　2 使用下面命令安装nginx</p>
+<p>　　　　#yum install nginx</p>
+<p>　　3 启动Nginx</p>
+<p>　　　　#service nginx start</p>
+<p>3、直接浏览器访问localhost就会出现Nginx的欢迎界面表示你安装成功了，否则就是安装失败了</p>
+<p>　　默认80端口加入防火墙访问白名单中：firewall-cmd –permanent –zone=public –add-port=80/tcp</p>
+<p>　　使用firewall-cmd –reload命令使其生效</p>
+<p>4、配置Nginx</p>
+<p>　　CentOS安装Nginx后，安装在了 /etc/nginx/目录下，你可以打开/etc/nginx/conf.d/default/conf查看里面的配置，包括监听端口，域名和nginx访问的根目录.</p>
+<p>委婉待遇。。</p>
 
         </div>
 
@@ -145,7 +225,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="http://yoursite.com/2019/12/03/postname/">http://yoursite.com/2019/12/03/postname/</a></span>
+                        <span><a href="http://yoursite.com/2019/12/12/nginx%E9%85%8D%E7%BD%AE%E5%88%B0%E9%98%BF%E9%87%8C%E4%BA%91/">http://yoursite.com/2019/12/12/nginx%E9%85%8D%E7%BD%AE%E5%88%B0%E9%98%BF%E9%87%8C%E4%BA%91/</a></span>
                     </p>
                 
                 
@@ -169,7 +249,7 @@
                 <span class="tag">
                     
                     
-                        <a href="/tags/%E6%A0%87%E7%AD%BE/"># 标签</a>
+                        <a href="/tags/nginx/"># nginx</a>
                     
                         
                 </span>
@@ -182,10 +262,8 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2019/12/12/nginx%E9%85%8D%E7%BD%AE%E5%88%B0%E9%98%BF%E9%87%8C%E4%BA%91/">nginx配置到阿里云</a>
             
-            
-            <a class="next" rel="next" href="/2019/12/03/hello-world/">Hello World</a>
+            <a class="next" rel="next" href="/2019/12/03/postname/">postname</a>
             
         </section>
 
