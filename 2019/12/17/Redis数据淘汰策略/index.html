@@ -140,6 +140,7 @@
 <li>volatile-random：随机淘汰数据，只淘汰设定了有效期的key</li>
 <li>allkeys-random：随机淘汰数据，所有的key都可以被淘汰</li>
 <li>volatile-ttl：淘汰剩余有效期最短的key</li>
+<li>noeviction:当内存限制达到，谁也不删除，返回错误。</li>
 </ul>
 <p>配置方法:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">1.在线更新配置 &#x2F;apps&#x2F;svr&#x2F;redis&#x2F;bin&#x2F;redis-cli -p 6921 config set maxmemory-policy volatile-lru </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">2.修改配置文件 maxmemory-policy volatile-lru   #默认是noeviction，即不进行数据淘汰</span></pre></td></tr></table></figure>
